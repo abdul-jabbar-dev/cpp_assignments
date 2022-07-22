@@ -23,7 +23,7 @@ public:
     };
 };
 
-Restaurant *create_retaurant(int n)
+Restaurant *create_restaurant(int n)
 {
     int food_item_codes[n];
     string food_item_names[n];
@@ -38,7 +38,17 @@ Restaurant *create_retaurant(int n)
     Restaurant *restaurant = new Restaurant(food_item_codes, food_item_names, food_item_prices);
     return restaurant;
 };
-
+int filter(Restaurant *restaurant, int temp)
+{
+    for (int j = 0; j < sizeof(restaurant->food_item_codes) / sizeof(restaurant->food_item_codes[0]); j++)
+    {
+        if (restaurant->food_item_codes[j] == temp)
+            return temp;
+    };
+    cout << temp << " Incorrect item code try again: ";
+    cin >> temp;
+    filter(restaurant, temp);
+}
 void get_menu(Restaurant *restaurant)
 {
     cout << "                        Make bill                      " << endl;
@@ -57,15 +67,42 @@ void get_menu(Restaurant *restaurant)
         cout << endl;
     }
 }
+void user_order(Restaurant *restaurant)
+{
+    int table_no, number_of_items, item_code[number_of_items], item_quantity[number_of_items];
+    cout << "Welcome to our restaurant" << endl;
+    cout << endl;
+    cout << "Table Number: ";
+    cin >> table_no;
+    cout << endl;
+    cout << "How many order you want: ";
+    cin >> number_of_items;
+    cout << endl;
 
+    for (int i = 0; i < number_of_items; i++)
+    {
+        int temp;
+        cout << i << " Item code: ";
+        cin >> temp;
+        item_code[i] = filter(restaurant, temp);
+        cout << i << " How many you want (Quantity): ";
+        cin >> item_quantity[i];
+    };
+    for (int i = 0; i < number_of_items; i++)
+    {
+        cout << i << " your Item code: " << item_code[i] << " ";
+        cout << " your Item qua: " << item_quantity[i] << endl;
+    };
+
+};
 int main()
 {
     int n;
     cin >> n;
     Restaurant *restaurant;
-    restaurant = create_retaurant(n);
+    restaurant = create_restaurant(n);
     get_menu(restaurant);
-   // user_order(restaurant); working 
+    user_order(restaurant);
 
     return 0;
 }

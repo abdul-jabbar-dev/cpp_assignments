@@ -2,6 +2,14 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
         "string_view": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "iostream": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
     }
 }
