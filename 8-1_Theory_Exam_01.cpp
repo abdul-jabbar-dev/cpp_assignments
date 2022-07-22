@@ -67,6 +67,26 @@ void get_menu(Restaurant *restaurant)
         cout << endl;
     }
 }
+
+void my_order(int table_no, int number_of_items, int *item_code, int *item_quantity, Restaurant *restaurant)
+{
+    cout << "\t\t\t\t Bill summary";
+    cout << "Table no. " << number_of_items;
+    cout << "Code:\t\tName:\t\t\t\tQuantity:\t\t\tPrice: " << endl;
+    for (int i = 0; i < number_of_items; i++)
+    {
+        for (int l = 0; l < sizeof(restaurant->food_item_codes) / sizeof(restaurant->food_item_codes[0]); l++)
+        {
+            if (number_of_items[i]== restaurant->food_item_codes[l])
+            {
+                cout << restaurant->food_item_codes[l] << "\t" << restaurant->food_item_names[l]<<endl;
+            }
+            
+        }
+        
+    }
+}
+
 void user_order(Restaurant *restaurant)
 {
     int table_no, number_of_items, item_code[number_of_items], item_quantity[number_of_items];
@@ -88,12 +108,7 @@ void user_order(Restaurant *restaurant)
         cout << i << " How many you want (Quantity): ";
         cin >> item_quantity[i];
     };
-    for (int i = 0; i < number_of_items; i++)
-    {
-        cout << i << " your Item code: " << item_code[i] << " ";
-        cout << " your Item qua: " << item_quantity[i] << endl;
-    };
-
+    my_order(table_no, number_of_items, item_code, item_quantity, restaurant);
 };
 int main()
 {
