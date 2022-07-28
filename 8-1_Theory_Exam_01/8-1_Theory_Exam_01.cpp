@@ -1,7 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Restaurant
+Restaurant restaurant {
+    int food_item_codes[12]={gerveg value}
+    string food_item_names[12]={gerveg value}
+    int food_item_prices[12]={gerveg value}
+}
+
+
+    class Restaurant
 {
 public:
     int food_item_codes[12];
