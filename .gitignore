@@ -1,2 +1,7 @@
+.exe
 *.exe
 *.o
+.o
+*.vscode
+.vscode
+.git
